@@ -1,0 +1,77 @@
+/**
+ * lembang THEME SHAPE
+ * --button-border-radius-...
+ */
+$eui-lembang-theme-shape: (
+  "square": (
+    "border-radius-button": 0,
+    "border-radius-input": 0,
+    "border-radius-card": 0,
+    "border-radius-image": 0,
+    "border-radius-box": 0,
+    "border-radius":0,
+    "border-radius-sm":0,
+    "border-radius-lg":0,
+    "border-radius-pill":0,
+  ),
+  "rounded": (
+    "border-radius-button": 0.25em,
+    "border-radius-input": 0.25em,
+    "border-radius-card": 0.25em,
+    "border-radius-image": 0.25em,
+    "border-radius-box": 0.25em,
+    "border-radius":.25rem,
+    "border-radius-sm":.2rem,
+    "border-radius-lg":.3rem,
+    "border-radius-pill":50rem
+  ),
+  "circle": (
+    "border-radius-button": 3em,
+    "border-radius-input": 3em,
+    "border-radius-card": 3em,
+    "border-radius-image": 3em,
+    "border-radius-box": 3em,
+    "border-radius":3rem,
+    "border-radius-sm":3rem,
+    "border-radius-lg":3rem,
+    "border-radius-pill":3rem,
+  ),
+) !default;
+
+
+/** COMPONENT VARIABLE STYLE */
+$eui-lembang-theme-component: (
+  'body-bg': var(--black-5),
+  
+  'margin-xmini': .25rem,
+  'margin-mini': .5rem,
+  'margin-tiny': .75rem,
+  'margin-small': 1rem,
+  'margin-medium': 1.15rem,
+  'margin-large': 1.5rem,
+  'margin-big': 1.75rem,
+  'margin-huge': 2rem,
+  'margin-massive': 2.25rem,
+
+  'padding-xmini': .25rem,
+  'padding-mini': .5rem,
+  'padding-tiny': .75rem,
+  'padding-small': 1rem,
+  'padding-medium': 1.15rem,
+  'padding-large': 1.5rem,
+  'padding-big': 1.75rem,
+  'padding-huge': 2rem,
+  'padding-massive': 2.25rem,
+
+  'border-thin': 1px,
+  'border-semibold': 2px,
+  'border-bold': 3px,
+  'border-xbold': 4px,
+  'border-xxbold': 5px,
+  
+  'shadow-small': 2px,
+  'shadow-medium': 4px,
+  'shadow-large': 6px,
+  'shadow-big': 8px,
+  'shadow-huge': 10px,
+) !default;

@@ -1,0 +1,10 @@
+@import './themes.scss';
+
+@import "./variables";
+@import "../mixin/themes";
+
+@import './root';
+
+body.print{
+  --body-bg: #fff !important;
+}

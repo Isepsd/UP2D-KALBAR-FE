@@ -1,0 +1,35 @@
+[
+  {
+    "context": "/api/v1/main",
+    "target": "http://192.168.8.12:8023/portal",
+    "docs": "http://192.168.8.12:8023/portal/api/docs/",
+    "logLevel": "debug",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/v1/main": ""
+    }
+  },
+  {
+    "context": "/api/v1/upload",
+    "target": "http://180.250.201.155:8051/api/v1",
+    "docs": "",
+    "logLevel": "debug",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/v1/upload": ""
+    }
+  },
+  {
+    "context": "/media",
+    "target": "http://180.250.201.155:8050/apd/",
+    "docs": "",
+    "logLevel": "debug",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/media": ""
+    }
+  }
+]

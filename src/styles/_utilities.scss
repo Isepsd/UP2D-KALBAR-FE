@@ -1,0 +1,72 @@
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+/** MARGIN **/
+.m{
+    &t__2{
+        margin-top: -2px !important;
+    }
+    &t__3{
+        margin-top: -3px !important;
+    }
+    &t__4{
+        margin-top: -4px !important;
+    }
+    &t__6{
+        margin-top: -6px !important;
+    }
+
+    &r__{
+        &50{
+            margin-right: -50px !important;
+        }
+    }
+}
+
+
+a:hover{
+    text-decoration: none;
+}
+
+.text-ellipsis {
+	display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cursor-pointer, .c-pointer {
+    cursor: pointer;
+}
+.no-event {
+    pointer-events: none;
+}
+
+.badge-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.disabled-event {
+    pointer-events: none;
+    opacity: .7;
+}
+
+.border-radius-0 {
+    border-radius: 0 !important;
+}
+
+.font-sise-large {
+    font-size: large;
+}
+
+.hr {
+    margin: .70rem 0;
+    border-bottom: 1px solid var(--black-50);
+}

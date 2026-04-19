@@ -1,0 +1,144 @@
+/**
+ * COLORS
+ * --
+ */
+$enamel-blue: (
+  'colors': (
+    /** Base */ 'red': red,
+    'yellow': yellow,
+    'blue': blue,
+    'orange': orange,
+    'green': green,
+    'purple': purple,
+    'red-orange': #fc600a,
+    'yellow-orange': #fccc1a,
+    'yellow-green': #b2d732,
+    'blue-green': #347c98,
+    'blue-yellow': #33F2EB,
+    'blue-purple': #4424d6,
+    'red-purple': #c21460,
+
+    /** Main */ 
+    'primary': #0585cf,
+    'secondary': #197c97,
+    'tertiary': #a8006f,
+    'quaternary': #76004d,
+    'quinary': #d8bc24,
+
+    /** State */ 
+    'neutral': #a5a5a5,
+    'success': #2fba31,
+    'info': #167bd8,
+    'warning': #f78d38,
+    'danger': #c92c33,
+
+    /** neutral variant element color */ 'light': #f8f9fa,
+    'dark': #1c1c24,
+  ),
+  'mode': (
+    'light': (
+      'black': #11161d,
+      'white': #fff,
+    ),
+    'dark': (
+      'black': #fff,
+      'white': #11161d,
+    ),
+  ),
+) !default;
+
+$yellow-butter: (
+  'colors': (
+    /** Base */ 'red': #ff2f3c,
+    'yellow': #ffc727,
+    'blue': #1362fd,
+    'orange': #f37916,
+    'green': #13c57c,
+    'purple': #7659ff,
+    'green-yellow': #d2e603,
+    'teal': #35b5ac,
+    //red-orange
+    'amber': #fc600a,
+    // yellow-orange
+    'chartreuse': chartreuse,
+    // yellow-green
+    // blue-green
+    'violet': violet,
+    // blue-purple
+    'magenta': magenta,
+    // red-purple
+    /** Main */ 
+    'primary': #f5e624,
+    'secondary': #aba619,
+    'tertiary': #246df5,
+    'quaternary': #194cab,
+    'quinary': #f52441,
+    /** State */ 
+    'neutral': #a5a5a5,
+    'success': #198754,
+    'info': #4db2d6,
+    'warning': #ffc107,
+    'danger': #dc3545,
+    /** neutral variant element color */ 'light': #f8f9fa,
+    'dark': #212529,
+  ),
+  'mode': (
+    'light': (
+      'black': #2b2f3b,
+      'white': #fff,
+    ),
+    'dark': (
+      'black': #fff,
+      'white': #1e1d2b,
+    ),
+  ),
+);
+
+$red-power: (
+  'colors': (
+    /** Base */ 'red': #fd524e,
+    'yellow': #ffca00,
+    'blue': #1089ff,
+    'orange': #fb9400,
+    'green': #13c57c,
+    'purple': #4e60ff,
+    'green-yellow': #e5e631,
+    'teal': #00d8d8,
+    //red-orange
+    'amber': #fc600a,
+    // yellow-orange
+    'chartreuse': chartreuse,
+    // yellow-green
+    // blue-green
+    'violet': violet,
+    // blue-purple
+    'magenta': magenta,
+    // red-purple
+    /** Main */ 'primary': #dc1121,
+    'secondary': #9a0c20,
+    'tertiary': #dc5511,
+    'quaternary': #dc11b7,
+    'quinary': #9a0c80,
+    /** Sentiment */ 
+    
+    'neutral': #787780,
+    'positive': #0699b6,
+    'negative': #ca3f42,
+    /** State */ 'success': #128a35,
+    'info': #53b2d7,
+    'warning': #ea3d18,
+    'danger': #c2000f,
+    /** neutral variant element color */ 'light': #f8f9fa,
+    'dark': #212529,
+  ),
+  'mode': (
+    'light': (
+      'black': #2b2f3b,
+      'white': #fff,
+    ),
+    'dark': (
+      'black': #fff,
+      'white': #1e1d2b,
+    ),
+  ),
+);

@@ -1,0 +1,49 @@
+.modal.show{
+  // backdrop-filter: blur(3px);
+  background-color: rgba(196, 196, 196, 0.3);
+}
+
+.modal-backdrop.show {
+  opacity: 0.1 !important;
+}
+.modal-content {
+  border: none !important;
+  box-shadow: 0px 12px 17px rgb(2 3 3 / 3%), 0px 5px 22px rgb(2 3 3 / 2%), 0px 7px 8px rgb(2 3 3 / 4%);
+  button.close {
+    opacity: 1;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--black);
+    text-shadow: 0 1px 0 var(--white);
+    background-color: transparent;
+    border: 0;
+    padding: 1rem 1rem;
+    margin: -1rem -1rem -1rem auto;
+    i,
+    svg {
+      color: var(--white);
+      background: var(--black);
+      padding: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .confirm-delete.modal .modal-dialog.modal-sm{
+    max-width: 75%;
+    margin: 0 auto;
+  }
+}
+
+
+.modal-dialog:not(.modal-dialog-scrollable){
+  .modal-content, .modal-body {
+    overflow: unset;
+    max-height: unset;
+  }
+}

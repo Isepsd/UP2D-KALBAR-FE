@@ -1,0 +1,21 @@
+// scss-docs-start table-variant
+@mixin table-variant($state, $background) {
+  .table-#{$state} {
+    $color: var(--#{$state}-#{$background}-cc);
+    $hover-bg: var(--#{$state}-#{$table-hover-bg-factor});
+    $striped-bg: var(--#{$state}-#{$table-striped-bg-factor});
+    $active-bg: var(--#{$state}-#{$table-active-bg-factor});
+
+    --#{$variable-prefix}table-bg: #{var(--#{$state}-#{$background})};
+    --#{$variable-prefix}table-striped-bg: #{$striped-bg};
+    --#{$variable-prefix}table-striped-color: var(--#{$state}-#{$table-striped-bg-factor}-cc);
+    --#{$variable-prefix}table-active-bg: #{$active-bg};
+    --#{$variable-prefix}table-active-color: var(--#{$state}-#{$table-active-bg-factor}-cc);
+    --#{$variable-prefix}table-hover-bg: #{$hover-bg};
+    --#{$variable-prefix}table-hover-color: var(--#{$state}-#{$table-hover-bg-factor}-cc);
+
+    color: $color;
+    border-color:  var(--#{$state}-#{$table-border-factor});
+  }
+}
+// scss-docs-end table-variant

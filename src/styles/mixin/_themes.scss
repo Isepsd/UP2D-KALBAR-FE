@@ -1,0 +1,138 @@
+@function index-to-key($variable, $index) {
+  $keys: map-keys($variable); // A list of all keys in a $breakpoints map
+
+  @return nth($keys, $index);
+}
+
+/**
+ * GENERATE VAR THEME COLOR HUE
+ */
+@mixin theme-color-hue($theme-colors, $theme-colors-mode, $low-mix, $high-mix, $percentage-hue-lighten, $percentage-hue-darken) {
+  @each $color-group, $color-value in $eui-theme-colors {
+    $color-mode-group: map-get($theme-colors-mode, $color-group);
+    $color-mode-low: map-get($color-mode-group, index-to-key($low-mix, 1));
+    $color-mode-high: map-get($color-mode-group, index-to-key($high-mix, 1));
+    $low-mix1: map-get($color-mode-low, index-to-key($low-mix, 2));
+    $high-mix1: map-get($color-mode-high, index-to-key($high-mix, 2));
+  
+    body[theme-color="#{$color-group}"]{
+      @each $color-key, $value in $color-value {
+        --#{$color-key}: #{$value};
+      }
+
+      /** VARIABLE COLORS DARKEN & LIGHTEN */
+      @each $color-key, $value in $color-value {
+        @each $color-hue, $percent in $percentage-hue-lighten {
+          --#{$color-key}-#{$color-hue}: #{mix($low-mix1, $value, $percent)};
+        }
+
+        --#{$color-key}-500: #{$value};
+
+        @each $color-hue, $percent in $percentage-hue-darken {
+          --#{$color-key}-#{$color-hue}: #{mix($high-mix1, $value, $percent)};
+        }
+      }
+    }
+  }
+
+  /**
+ * CREATE VARIABLE THEME COLORS HUE RGB --
+ */
+  @each $color-group, $color-value in $eui-theme-colors {
+    $color-mode-group: map-get($theme-colors-mode, $color-group);
+    $color-mode-low: map-get($color-mode-group, index-to-key($low-mix, 1));
+    $color-mode-high: map-get($color-mode-group, index-to-key($high-mix, 1));
+    $low-mix2: map-get($color-mode-low, index-to-key($low-mix, 2));
+    $high-mix2: map-get($color-mode-high, index-to-key($high-mix, 2));
+
+    body[theme-color="#{$color-group}"]{
+      @each $color-key, $value in $color-value {
+        --#{$color-key}-rgb: #{hexToRGB($value)};
+      }
+
+      /** VARIABLE COLORS DARKEN & LIGHTEN */
+      @each $color-key, $value in $color-value {
+        @each $color-hue, $percent in $percentage-hue-lighten {
+          --#{$color-key}-#{$color-hue}-rgb: #{hexToRGB(
+              mix($low-mix2, $value, $percent)
+            )};
+        }
+
+        --#{$color-key}-500-rgb: #{hexToRGB($value)};
+
+        @each $color-hue, $percent in $percentage-hue-darken {
+          --#{$color-key}-#{$color-hue}-rgb: #{hexToRGB(
+              mix($high-mix2, $value, $percent)
+            )};
+        }
+      }
+    }
+  }
+
+  /**
+ * CREATE VARIABLE THEME CONTRAST COLORS --
+ * ex output: --primary-400-cc
+ */
+
+  @each $color-group, $color-value in $eui-theme-colors {
+    $color-mode-group: map-get($theme-colors-mode, $color-group);
+    $color-mode-low: map-get($color-mode-group, index-to-key($low-mix, 1));
+    $color-mode-high: map-get($color-mode-group, index-to-key($high-mix, 1));
+    $low-mix3: map-get($color-mode-low, index-to-key($low-mix, 2));
+    $high-mix3: map-get($color-mode-high, index-to-key($high-mix, 2));
+
+    body[theme-color="#{$color-group}"]{
+      @each $color-key, $value in $color-value {
+        --#{$color-key}-cc: #{colorContrast($value)};
+      }
+
+      /** VARIABLE COLORS DARKEN & LIGHTEN */
+      @each $color-key, $value in $color-value {
+        @each $color-hue, $percent in $percentage-hue-lighten {
+          --#{$color-key}-#{$color-hue}-cc: #{colorContrast(
+              mix($low-mix3, $value, $percent)
+            )};
+        }
+
+        --#{$color-key}-500-cc: #{colorContrast($value)};
+
+        @each $color-hue, $percent in $percentage-hue-darken {
+          --#{$color-key}-#{$color-hue}-cc: #{colorContrast(
+              mix($high-mix3, $value, $percent)
+            )};
+        }
+      }
+    }
+  }
+}
+
+@mixin theme-mode-light($black-color, $percentage-black-hue) {
+  @each $color-hue, $percent in $percentage-black-hue {
+    --black-#{$color-hue}: #{mix(white, $black-color, $percent)};
+  }
+
+  @each $color-hue, $percent in $percentage-black-hue {
+    --black-#{$color-hue}-rgb: #{hexToRGB(mix(white, $black-color, $percent))};
+  }
+}
+
+@mixin theme-mode-dark($black-color, $percentage-black-hue) {
+  // custom
+  --black-1: #{mix(black, $black-color, 60)};
+  --black-5: #{mix(black, $black-color, 20)};
+
+  // generated
+  @each $color-hue, $percent in $percentage-black-hue {
+    --black-#{$color-hue}: #{mix(white, $black-color, $percent)};
+  }
+
+  // custom rgb
+  --black-1-rgb: #{hexToRGB(mix(black, $black-color, 60))};
+  --black-5-rgb: #{hexToRGB(mix(black, $black-color, 20))};
+
+  // generated rgb
+  @each $color-hue, $percent in $percentage-black-hue {
+    --black-#{$color-hue}-rgb: #{hexToRGB(mix(white, $black-color, $percent))};
+  }
+}
+ 

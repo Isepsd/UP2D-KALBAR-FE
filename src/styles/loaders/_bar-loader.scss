@@ -1,0 +1,55 @@
+.loader-bar {
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  padding: 1px;
+  background-color: var(--primary-150);
+  height: 5px;
+  border-radius: 10px;
+  z-index: 9999;
+}
+
+.loader-bar:before {
+  content: '';
+  border-radius: 10px;
+  position: absolute;
+}
+
+.loader-bar .loader-bar-content {
+  position: absolute;
+  border-radius: 10px;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+  background: var(--primary);
+  width: 0;
+  animation: borealisBar 2s linear infinite;
+}
+
+@keyframes borealisBar {
+  0% {
+    left: 0%;
+    right: 100%;
+    width: 0%;
+  }
+
+  10% {
+    left: 0%;
+    right: 75%;
+    width: 25%;
+  }
+
+  90% {
+    right: 0%;
+    left: 75%;
+    width: 25%;
+  }
+
+  100% {
+    left: 100%;
+    right: 0%;
+    width: 0%;
+  }
+}

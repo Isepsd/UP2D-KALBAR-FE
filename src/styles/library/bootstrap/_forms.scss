@@ -1,0 +1,6 @@
+@import "./forms/form-check";
+@import "./forms/form-control";
+
+.form-control:disabled, .form-control[readonly] {
+  color: var(--black-300);
+}
