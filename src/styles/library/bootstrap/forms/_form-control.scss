@@ -249,20 +249,7 @@ textarea.form-control {
   font-size: 15px;
 }
 
-.mapboxgl-ctrl-geocoder--suggestion {
-  box-sizing: border-box;
-  .mapboxgl-ctrl-geocoder--suggestion-title {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    font-weight: bold;
-  }
-  .mapboxgl-ctrl-geocoder--suggestion-address {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-}
+
 .form-control-close {
   position: absolute;
   right: 2px;
