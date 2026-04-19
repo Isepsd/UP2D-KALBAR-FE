@@ -1,0 +1,127 @@
+// BRAND
+.pangandaran {
+  .nav:not(.nav-pills) {
+    // padding: 0.5rem 1.15rem;
+    // background: var(--white);
+    backdrop-filter: saturate(100%) blur(20px);
+
+    .case {
+      &--active {
+        color: var(--black);
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-right: 30px;
+        text-transform: capitalize !important;
+        &.fullmap {
+          border-left: 1px solid var(--black-400);
+          padding-left: 1rem;
+          line-height: 1;
+        }
+      }
+    }
+
+    .nav {
+      margin: 0 1rem;
+      .dropdown-toggle::after {
+        margin-right: 0;
+        margin-left: 0.85rem;
+      }
+
+      .nav-item {
+        margin: 0 0.25rem;
+
+        a.nav-link {
+          background: var(--black-75);
+          color: var(--black-800);
+          box-sizing: border-box;
+          border-radius: var(--border-radius);
+          padding: 0.375rem 1rem;
+
+          a {
+            color: var(--black);
+          }
+        }
+
+        &.active > a {
+          background-color: var(--primary);
+          color: var(--primary-cc) !important;
+
+          & > a {
+            color: var(--primary-cc) !important;
+          }
+        }
+      }
+
+      .dropdown{
+        .dropdown-menu{
+          // background-color: var(--black-25);
+
+          a.dropdown-item{
+            border: 0;
+            border-radius: 0;
+            &:hover{
+              background: var(--primary-50);
+            }
+          }
+
+          .dropdown-item{
+            &:hover{
+              background-color: var(--primary-50);
+            }
+          }
+
+          .dropdown-divider {
+            border-top: 1px solid var(--primary-50);
+          }
+        }
+      }
+    }
+
+    // &-brand {
+    //   width: 10.5rem;
+    // }
+
+    .search-loc {
+      background: var(--black-25);
+      border: 1px solid var(--black-50);
+      box-sizing: border-box;
+      border-radius: 5px;
+      width: 220px;
+    }
+
+    .avatar-img{
+      width: 2.75rem;
+      height: 2.75rem;
+    
+      &.rounded-circle{
+        border-radius: 50% !important;
+        overflow: hidden;
+      }
+    
+      img{
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+html[data-maps='fullmap'] {
+  .pangandaran .navbar {
+    background: transparent;
+  }
+
+  body {
+    overflow-y: hidden;
+  }
+}
+
+.transform-right {
+  transform: translate(0, 55px) !important;
+}
+
+span.user {
+  font-size: 1.1rem;
+  line-height: 1.1;
+  font-weight: 500;
+}

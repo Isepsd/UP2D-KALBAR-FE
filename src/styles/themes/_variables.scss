@@ -1,0 +1,155 @@
+@import './colors';
+
+/**
+ * THEME COLORS & MODE
+ * ===================
+ **/
+$eui-theme-colors: (
+  "enamel-blue": map-get($enamel-blue, "colors"),
+  "yellow-butter": map-get($yellow-butter, "colors"),
+  "red-power": map-get($red-power, "colors"),
+) !default;
+
+/** Dark Mode/Light color black and white
+ *  harus match dengan warna theme-colors key nya
+ *  ex: di theme color enamel-blue maka di theme color mode key nya enamel-blue juga
+*/
+$eui-theme-colors-mode:(
+  "enamel-blue": map-get($enamel-blue, "mode"),
+  "yellow-butter": map-get($yellow-butter, "mode"),
+  "red-power": map-get($red-power, "mode"),
+) !default;
+
+/** END THEME COLORS & MODE !! **/
+
+/**
+ * SHAPE STYLE
+ * */
+$eui-theme-shape: (
+  'mimiti': $eui-mimiti-theme-shape,
+  'citatah': $eui-citatah-theme-shape,
+  'wakatobi': $eui-wakatobi-theme-shape,
+  'lembang': $eui-lembang-theme-shape,
+) !default;
+
+/**
+ * THEME COMPONENT VARIABLE
+ * */
+$eui-theme-component: (
+  'mimiti': $eui-mimiti-theme-component,
+  'citatah': $eui-citatah-theme-component,
+  'wakatobi': $eui-wakatobi-theme-component,
+  'lembang': $eui-lembang-theme-component,
+) !default;
+
+
+/**
+ * FONT FAMILY
+ * --font-...
+ */
+$eui-theme-font: (
+  "roboto": "",
+  "ubuntu": "",
+  "arial": "",
+) !default;
+
+/**
+ * FONT SIZING
+ * --font-size-...
+ */
+$eui-theme-font-sizing: (
+  "mini": "12px",
+  "tiny": "13px",
+  "small": "14px",
+  "medium": "15px",
+  "large": "16px",
+  "big": "18px",
+  "huge": "21px",
+  "massive": "23px",
+) !default;
+
+/** COLORED HUE */
+$percentage-color-hue-lighten-light: (
+  "1": 98%,
+  "5": 96%,
+  "10": 93%,
+  "25": 95%,
+  "50": 90%,
+  "75": 85%,
+  "100": 80%,
+  "150": 70%,
+  "200": 60%,
+  "300": 40%,
+  "350": 30%,
+  "400": 20%,
+) !default;
+
+$percentage-color-hue-darken-light: (
+  "600": 20%,
+  "700": 40%,
+  "800": 60%,
+  "900": 80%,
+) !default;
+
+$percentage-color-hue-lighten-dark: (
+  "1": 98%,
+  "5": 96%,
+  "10": 93%,
+  "25": 95%,
+  "50": 90%,
+  "75": 85%,
+  "100": 80%,
+  "150": 70%,
+  "200": 60%,
+  "300": 40%,
+  "350": 30%,
+  "400": 20%,
+) !default;
+
+$percentage-color-hue-darken-dark: (
+  "600": 20%,
+  "700": 40%,
+  "800": 60%,
+  "900": 80%,
+) !default;
+
+/** BLACK HUE */
+$percentage-black-hue-light: (
+  "1": 99.5%,
+  "5": 98.5%,
+  "10": 97.9%,
+  "25": 96.25%,
+  "50": 93.5%,
+  "75": 90.75%,
+  "100": 88%,
+  "150": 85.25%,
+  "200": 77%,
+  "300": 66%,
+  "350": 63.25%,
+  "400": 55%,
+  "500": 44%,
+  "600": 33%,
+  "700": 22%,
+  "750": 19.25%,
+  "800": 11%,
+  "900": 0%,
+) !default;
+
+$percentage-black-hue-dark: (
+  "10": 1%,
+  "25": 2.5%,
+  "50": 5%,
+  "75": 7.5%,
+  "100": 10%,
+  "150": 15%,
+  "200": 20%,
+  "300": 30%,
+  "350": 35%,
+  "400": 40%,
+  "500": 50%,
+  "600": 60%,
+  "700": 70%,
+  "750": 75%,
+  "800": 90%,
+  "900": 100%,
+) !default;

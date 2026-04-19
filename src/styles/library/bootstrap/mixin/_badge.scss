@@ -1,0 +1,21 @@
+@mixin badge-variant($color-name, $bg) {
+  $text-color:var(--#{$color-name}-500);
+  $bg: var(--#{$color-name}-50);
+  $bg-rgb: var(--#{$color-name}-rgb);
+
+  color: $text-color;
+  background-color: $bg;
+
+  @at-root a#{&} {
+    @include hover-focus() {
+      color: $text-color;
+      background-color: var(--#{$color-name}--600);
+    }
+
+    &:focus,
+    &.focus {
+      outline: 0;
+      box-shadow: 0 0 0 $badge-focus-width rgba($bg-rgb, .5);
+    }
+  }
+}

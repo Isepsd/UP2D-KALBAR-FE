@@ -1,0 +1,28 @@
+/* Absolute Center Spinner */
+.preloader {
+  position: fixed;
+  z-index: 999;
+  height: 5rem;
+  width: 5rem;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  img{
+    width:5rem;
+    height: auto;
+  }
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.preloader:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}

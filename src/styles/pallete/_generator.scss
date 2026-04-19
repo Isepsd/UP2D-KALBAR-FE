@@ -1,0 +1,91 @@
+//
+// this mixin will result: [theme-class] [element, class, id]
+// e.g: .dark .navbar
+//
+@mixin class-themed-global($themes: $themes) {
+    @each $theme, $map in $themes {
+  
+      .#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+  
+        @content;
+        $theme-map: null !global;
+      }
+  
+    }
+  }
+  
+  //
+  // this mixin will result: [element, class, id][theme-class]
+  // e.g: body.light
+  //
+  @mixin class-themed-local($themes: $themes) {
+    @each $theme, $map in $themes {
+  
+      &.#{$theme} {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+  
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  
+  @mixin bgcolor-themed($theme-item-name) {
+    background-color: themed($theme-item-name)!important;
+  }
+  
+  @mixin color-themed($theme-item-name) {
+    color: themed($theme-item-name)!important;
+  }
+  
+  @mixin border-themed($theme-item-name) {
+    border-color: themed($theme-item-name)!important;
+  }
+  
+  @mixin border-top-themed($theme-item-name) {
+    border-top-color: themed($theme-item-name)!important;
+  }
+  
+  @mixin border-bottom-themed($theme-item-name) {
+    border-bottom-color: themed($theme-item-name)!important;
+  }
+  
+  @mixin border-left-themed($theme-item-name) {
+    border-left-color: themed($theme-item-name)!important;
+  }
+  
+  @mixin border-right-themed($theme-item-name) {
+    border-right-color: themed($theme-item-name)!important;
+  }
+  
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }
+
+/*
+  Deep get map sass
+*/
+ @function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+      $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+/* Function */
+@mixin background-opacity($color, $opacity: 0.3) {
+  background: $color !important; /* The Fallback */
+  background: rgba($color, $opacity) !important;
+}
+@function -opacityColor($color, $opacity: 0.3) {
+  @return rgba($color, $opacity);
+}

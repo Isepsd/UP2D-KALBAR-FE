@@ -1,0 +1,59 @@
+.progress-bar-container {
+  height: .55rem;
+  margin: 0.4rem 0px;
+  background: var(--black-50);
+  border-radius: 0.5rem;
+  position: relative; /* relative here */
+}
+
+.progress-bar-indicator {
+  height: 100%;
+  border-radius: 0.5rem;
+  /* this will do the magic */
+  -webkit-mask: linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0);
+}
+// jika digunakan lagi hapus z nya
+.progress-bar-indicatorz::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    to right,
+    green,
+    green,
+    #ffbf34,
+    red
+  ); /* your gradient here */
+}
+
+.progress-bar-indicator-success::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: green
+}
+.progress-bar-indicator-warning::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:#ffbf34
+}
+.progress-bar-indicator-danger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: red
+}

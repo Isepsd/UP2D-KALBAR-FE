@@ -1,0 +1,12 @@
+@import "./mimiti/themes.scss";
+@import "./wakatobi/themes.scss";
+@import "./lembang/themes.scss";
+@import "./citatah/themes.scss";
+
+.main-container {
+  >.container{
+    .container{
+      padding: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+// scss-docs-start import-stack
+// Configuration
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+/* Override variable, mixin, function */
+@import './bootstrap-variable';
+@import './mixin';
+@import './utilities';
+@import './table';
+@import './tooltips';
+@import './popover';
+@import './modals';
+@import './card';
+@import './tabs';
+
+@import './bootstrap-components.scss';
+
+body {
+  --gutter-x: 1.35rem;
+}
+
+.input-group-text {
+  padding: 0.6rem 0.75rem;
+}
+
+.btn-check.no-outline:checked + .btn-primary.no-outline:focus,
+.btn-check.no-outline:active + .btn-primary.no-outline:focus,
+.btn-primary.no-outline:active.no-outline:focus,
+.btn-primary.active.no-outline:focus,
+.show > .btn-primary.dropdown-toggle.no-outline:focus, .btn.no-outline:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+
+hr{
+  background-color:var(--black-200)
+}
+
+.text-danger-hover:hover{
+  color: var(--danger) !important;
+}
+
+textarea{
+  font-family: inherit;
+}
