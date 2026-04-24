@@ -1,0 +1,40 @@
+
+@import "react-datepicker/dist/react-datepicker.css";
+
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {
+  display: none !important;
+}
+
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before {
+  display: none !important;
+}
+
+.react-datepicker__year-wrapper {
+  max-width: 145px;
+}
+
+.react-datepicker__navigation-icon {
+  top: 4px;
+}
+
+.react-datepicker-year-header {
+  color: #fff;
+}
+.react-datepicker__header {
+  background-color: #0585cf;  
+}
+
+.react-datepicker__day-name , .react-datepicker__current-month {
+  color: #fff;
+}
+
+.react-datepicker__year .react-datepicker__year-text {
+  display: inline-block;
+  width: 4rem;
+  margin: 4px 2px;
+  padding: 0.35rem;
+}
+
+.react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+  background-color: #f3c81e;
+}

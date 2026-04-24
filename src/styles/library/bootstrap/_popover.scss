@@ -1,0 +1,14 @@
+.popover {
+  background-color: var(--white) !important;
+}
+.popover-header {
+  // background-color: var(--black-50) !important;
+  font-size: 1.15rem !important;
+  border-bottom: none !important;
+}
+.popover.hide-arrow .popover-arrow {
+  display: none !important;
+}
+.popover-body{
+    padding-top: 0 !important;
+}

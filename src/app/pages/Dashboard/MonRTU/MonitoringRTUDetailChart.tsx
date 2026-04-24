@@ -1,0 +1,109 @@
+import React, { useEffect } from 'react';
+
+/** CONFIG */
+import { SCADATEL_STATUS_RTU_COLUMN_JQX } from './spectrum-realtime-dashboard.column'
+
+/** COMPONENTS */
+import TableDataJqxGridNew from '@app/modules/Table/TableDataJqxGridNew';
+import 'jqwidgets-scripts/jqwidgets/jqxtabs';
+
+/** SERVICE */
+import { API_PATH } from '@app/services/_path.service';
+// import { ROLE_ACCESS, ROLE_ACTION } from '@app/helper/auth.helper';
+// import Filter from './Filter';
+
+
+export default function MonitoringRTUDetailChart({filtervalues}:any) {
+  // const [roleActions, setRoleActions] = useState<any>({});
+
+  /** MAP DATA FROM API RESPONSE */
+  const handleRespDataApi = (data: any) => {
+    let dataTableValue: any = [];
+    data?.forEach((item: any) => {
+      dataTableValue.push({
+        number: item?.number,
+        point_number: item?.point_number,
+        nama_pointtype: item?.nama_pointtype,
+        path1: item?.path1,
+        path2: item?.path2,
+        path3: item?.path3,
+        path4: item?.path4,
+        path5: item?.path5,
+        status_2: item?.status_2,
+        datum_2: item?.datum_2,
+        durasi: item?.durasi,
+        value: item?.value,
+        datum_capture: item?.datum_capture,
+        kesimpulan: item?.kesimpulan
+
+      });
+    });
+    return dataTableValue;
+  }
+
+
+
+  const handleCheckedRows = (data: any) => {
+    return data;
+  }
+ 
+  // const [filterValues, setFilterValues] = useState<any>({
+  //   kesimpulan: 'VALID', // Default value
+  //   path1: '',
+  //   path2: '',
+  //   path3: '',
+  //   path4: '',
+  // });
+
+  // useEffect(() => {
+  //   // Update kesimpulan based on the state passed from route
+  //   if (location.state?.kesimpulan) {
+  //     setFilterValues((prevValues: any) => ({
+  //       ...prevValues,
+  //       kesimpulan: location.state.kesimpulan,
+  //     }));
+  //   }
+  // }, [location.state]);
+
+  // const handleFilterChange = (newFilterValues: any) => {
+  //       setFilterValues(newFilterValues);
+
+  //       };
+
+  useEffect(() => {
+    const tabs = document.getElementById('tabs');
+    if (tabs) {
+      (window as any).jqwidgets.createInstance(tabs, 'jqxTabs', { theme: "light", reorder: true });
+    }
+
+  }, []);
+
+
+  return (
+    <>
+            {/* <Filter onFilterChange={handleFilterChange} /> */}
+     
+        
+        {filtervalues &&
+          <TableDataJqxGridNew
+            
+            //TABLE DATA
+            path={API_PATH().fasop.realtime.digital}
+            filterParams={{ 
+              id_induk_pointtype: '3d391819-4288-4699-80f4-7ebd5ae0d733',jenis:'RTU', ...filtervalues}}
+            dataFieldsColsConfig={SCADATEL_STATUS_RTU_COLUMN_JQX()}
+            primaryKey={'id_pointtype'}
+            respDataApi={handleRespDataApi}
+            filterable={false}
+            onRowSelected={handleCheckedRows}
+            exportbtn={false}
+            reloadbtn={false}
+          />
+            }
+       
+
+    
+    
+    </>
+  );
+}

@@ -1,0 +1,14 @@
+.table > :not(:first-child) {
+    border-top: none !important;
+}
+tbody td {
+    border-bottom: 1px solid var(--black-50);
+}
+
+.table > :not(caption) > * > *{
+    border-bottom: 0;
+}
+
+td:has(.show) {
+    background: inherit;
+} 

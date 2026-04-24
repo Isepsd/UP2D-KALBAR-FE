@@ -1,0 +1,138 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons 
+
+// scss-docs-start btn-variant-mixin
+@mixin button-variant(
+  $color-name,
+  $background: var(--#{$color-name}),
+  $border:var(--#{$color-name}-#{$button-border-color}),
+  $color: var(--#{$color-name}-cc),
+  $hover-background: #{var(--#{$color-name}-#{$button-hover-background})},
+  $hover-border: #{var(--#{$color-name}-#{$button-hover-border})},
+  $hover-color: #{var(--#{$color-name}-#{$button-hover-color})},
+  $active-background: #{var(--#{$color-name}-#{$button-active-background})},
+  $active-border: #{var(--#{$color-name}-#{$button-active-border})},
+  $active-color: #{var(--#{$color-name}-#{$button-active-color})},
+  $disabled-background: var(--#{$color-name}-#{$button-disabled-background}),
+  $disabled-border: var(--#{$color-name}-#{$button-disabled-border}),
+  $disabled-color: var(--#{$color-name}-#{$button-disabled-color}),
+  $focus-border-color: var(--#{$color-name}-rgb)
+) {
+  color: $color;
+  @include custom-gradient-bg(var(--#{$color-name}));
+  border-color: var(--#{$color-name});
+  @include box-shadow($btn-box-shadow);
+
+  &:hover {
+    color: $hover-color;
+    @include custom-gradient-bg($hover-background);
+    border-color: $hover-border;
+  }
+
+  .btn-check:focus + &,
+  &:focus {
+    color: $hover-color;
+    @include custom-gradient-bg($hover-background);
+    border-color: $hover-border;
+    @if $enable-shadows {
+      // @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width rgba(mix($color, $border, 15%), .5));
+    } @else {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      box-shadow: 0 0 0 $btn-focus-width rgba($focus-border-color, .5);
+    }
+  }
+
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:active,
+  &.active,
+  .show > &.dropdown-toggle {
+    color: $active-color;
+    background-color: $active-background;
+    // Remove CSS gradients if they're enabled
+    background-image: if($enable-gradients, none, null);
+    border-color: $active-border;
+
+    &:focus {
+      @if $enable-shadows {
+        // @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width rgba(mix($color, $border, 15%), .5));
+      } @else {
+        // Avoid using mixin so we can pass custom focus shadow properly
+        box-shadow: 0 0 0 $btn-focus-width rgba($focus-border-color, .5);
+      }
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $disabled-color;
+    background-color: $disabled-background;
+    // Remove CSS gradients if they're enabled
+    background-image: if($enable-gradients, none, null);
+    border-color: $disabled-border;
+  }
+}
+// scss-docs-end btn-variant-mixin
+
+// scss-docs-start btn-outline-variant-mixin
+@mixin button-outline-variant(
+  $color-name,
+  $hashcolor: var(--#{$color-name}),
+  $color: var(--#{$color-name}),
+  $border-color: var(--#{$color-name}),
+  $color-hover: var(--#{$color-name}-cc),
+  $active-background: var(--#{$color-name}),
+  $active-border: var(--#{$color-name}-600),
+  $active-color: var(--#{$color-name}-600-cc)
+) {
+  color: $color;
+  border-color: $border-color;
+
+  &:hover {
+    color: $color-hover;
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+
+  .btn-check:focus + &,
+  &:focus {
+    box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+  }
+
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:active,
+  &.active,
+  &.dropdown-toggle.show {
+    color: $active-color;
+    background-color: $active-background;
+    border-color: $active-border;
+
+    &:focus {
+      @if $enable-shadows {
+        @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($color, .5));
+      } @else {
+        // Avoid using mixin so we can pass custom focus shadow properly
+        box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+      }
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background-color: transparent;
+  }
+}
+// scss-docs-end btn-outline-variant-mixin
+
+// scss-docs-start btn-size-mixin
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  @include font-size($font-size);
+  // Manually declare to provide an override to the browser default
+  @include border-radius($border-radius, 0);
+}
+// scss-docs-end btn-size-mixin

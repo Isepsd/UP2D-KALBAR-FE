@@ -1,0 +1,13 @@
+export const NO_DATAFIELD_JQWidget = () => [{ name: 'number', type: 'numbr' }]
+export const UNIT_PEMBANGKIT_DATAFIELD_JQWidget = () => [{ name: 'unit_pembangkit', type: 'string' }]
+export const GARDU_INDUK_DATAFIELD_JQWidget = () => [{ name: 'gi', type: 'string' }]
+export const GARDU_INDUK_PENYULANG_DATAFIELD_JQWidget = () => [{ name: 'gi_penyulang', type: 'string' }]
+export const TRAFO_DATAFIELD_JQWidget = () => [{ name: 'trafo', type: 'string' }]
+export const PEMBANGKIT_DATAFIELD_JQWidget = () => [{ name: 'pembangkit', type: 'string' }]
+export const DAYA_AKTIF_DATAFIELD_JQWidget = () => [{ name: 'p', type: 'string' }]
+export const DATETIME_DATAFIELD_JQWidget = () => [{ name: 'datum', type: 'date' }]
+export const MONTHYEAR_DATAFIELD_JQWidget = () => [{ name: 'month_year', type: 'string' }]
+export const YEAR_DATAFIELD_JQWidget = () => [{ name: 'year', type: 'string' }]
+export const BEBAN_PERJAM_DATAFIELD_JQWidget = () => [{ name: 'i', type: 'string' }, { name: 'p', type: 'string' }]
+export const TEGANGAN_DATAFIELD_JQWidget = () => [{ name: 'v', type: 'string' }]
+

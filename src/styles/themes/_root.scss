@@ -1,0 +1,172 @@
+/**
+ * CREATE VARIABLE COLORS --
+ */
+//! BACA DARI SYSTEM OS NYA DARK
+@media (prefers-color-scheme: dark) { 
+  html[theme-mode="system"] {
+    .light-hide{
+      display: none !important;
+    }
+    //* GENERATE VAR THEME COLOR HUE
+    @include theme-color-hue(
+      $eui-theme-colors,
+      $eui-theme-colors-mode,
+      ('dark':(),'white':()),
+      ('dark':(),'black':()),
+      $percentage-color-hue-lighten-dark,
+      $percentage-color-hue-darken-dark
+    );
+  }
+}
+
+//! BACA DARI SYSTEM OS NYA LIGHT
+@media (prefers-color-scheme: light) { 
+  html[theme-mode="system"] {
+    .dark-hide{
+      display: none !important;
+    }
+    
+    //* GENERATE VAR THEME COLOR HUE
+    @include theme-color-hue(
+      $eui-theme-colors,
+      $eui-theme-colors-mode,
+      ('light':(),'white':()),
+      ('light':(),'black':()),
+      $percentage-color-hue-lighten-light,
+      $percentage-color-hue-darken-light
+    );
+  }
+}
+
+//! BACA DARI BY SET MANUAL THEME LIGHT
+html[theme-mode="light"] {
+  .dark-hide{
+    display: none !important;
+  }
+
+  //* GENERATE VAR THEME COLOR HUE
+  @include theme-color-hue(
+    $eui-theme-colors,
+    $eui-theme-colors-mode,
+    ('light':(),'white':()),
+    ('light':(),'black':()),
+    $percentage-color-hue-lighten-light,
+    $percentage-color-hue-darken-light
+  );
+}
+
+//! BACA DARI BY SET MANUAL THEME MODE DARK
+html[theme-mode="dark"] {
+  .light-hide{
+    display: none !important;
+  }
+  .list-group-item {
+    background-color: transparent !important;
+  }
+  
+  //* GENERATE VAR THEME COLOR HUE
+  @include theme-color-hue(
+    $eui-theme-colors,
+    $eui-theme-colors-mode,
+    ('dark':(),'white':()),
+    ('dark':(),'black':()),
+    $percentage-color-hue-lighten-dark,
+    $percentage-color-hue-darken-dark
+  );
+}
+
+/** DEFAULT FROM VARIABLE DEFAULT / BOOTSTRAP COMPATIBILITY */
+body:not(.eui.theme) {
+  @each $color-key, $value in $theme-colors {
+    --#{$color-key}: #{$value};
+  }
+}
+
+/** GENERATE VARIABLE FONT SIZING HTML BODY BASE */
+@each $size-key, $value in $eui-theme-font-sizing {
+  html[theme-fontsize="#{$size-key}"],
+  html[theme-fontsize="#{$size-key}"] body {
+    font-size: #{$value};
+  }
+
+  .fs-#{$size-key}{
+    font-size: #{$value};
+  }
+}
+
+/** COLORS THEME MODE */
+@each $mode-key, $mode-value in $eui-theme-colors-mode {
+  $color-mode-light: map-get($mode-value, "light");
+  $color-mode-dark: map-get($mode-value, "dark");
+
+  $color-mode-light-white: map-get($color-mode-light, "white");
+  $color-mode-light-black: map-get($color-mode-light, "black");
+  $color-mode-dark-white: map-get($color-mode-dark, "white");
+  $color-mode-dark-black: map-get($color-mode-dark, "black");
+
+  //! BACA DARI SYSTEM OS NYA (DARK MODE)
+  @media (prefers-color-scheme: dark) {
+    html[theme-mode="system"] body[theme-color="#{$mode-key}"] {
+      --white: #{$color-mode-dark-white};
+      --black: #{$color-mode-dark-black};
+      @include theme-mode-dark(
+        $color-mode-dark-white,
+        $percentage-black-hue-dark
+      );
+    }
+  }
+
+  //! BACA DARI SYSTEM OS NYA (LIGHT MODE)
+  @media (prefers-color-scheme: light) {
+    html[theme-mode="system"] body[theme-color="#{$mode-key}"] {
+      --white: #{$color-mode-light-white};
+      --black: #{$color-mode-light-black};
+      @include theme-mode-light(
+        $color-mode-light-black,
+        $percentage-black-hue-light
+      );
+    }
+  }
+
+  //! BACA DARI BY SET MANUAL THEME MODE LIGHT MODE
+  html[theme-mode="light"] body[theme-color="#{$mode-key}"] {
+    --white: #{$color-mode-light-white};
+    --black: #{$color-mode-light-black};
+    @include theme-mode-light(
+      $color-mode-light-black,
+      $percentage-black-hue-light
+    );
+  }
+
+  //! BACA DARI BY SET MANUAL THEME MODE DARK MODE
+  html[theme-mode="dark"] body[theme-color="#{$mode-key}"] {
+    --white: #{$color-mode-dark-white};
+    --black: #{$color-mode-dark-black};
+    @include theme-mode-dark(
+      $color-mode-dark-white,
+      $percentage-black-hue-dark
+    );
+  }
+}
+
+/** THEME SHAPE */
+@each $theme-group, $theme-value in $eui-theme-shape {
+  html[theme="#{$theme-group}"]{
+    @each $shape-group, $shape-value in $theme-value {
+      body[theme-shape="#{$shape-group}"]{
+        @each $shape-key, $value in $shape-value {
+          --#{$shape-key}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+/** THEME COMPONENT VARIABLE */
+@each $theme-group, $theme-value in $eui-theme-component {
+  html[theme="#{$theme-group}"] body{
+      @each $component-key, $value in $theme-value {
+        --#{$component-key}: #{$value};
+      }
+  }
+}

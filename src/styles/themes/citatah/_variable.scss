@@ -1,0 +1,62 @@
+
+/**
+ * citatah THEME SHAPE
+ * --button-border-radius-...
+ */
+$eui-citatah-theme-shape: (
+  "square": (
+    "border-radius-sm":0,
+    "border-radius":0,
+    "border-radius-lg":0,
+    "border-radius-pill":0,
+  ),
+  "rounded": (
+    "border-radius-sm":.1rem,
+    "border-radius":.22rem,
+    "border-radius-lg":.4rem,
+    "border-radius-pill":2rem
+  ),
+  "circle": (
+    "border-radius-sm":.5rem,
+    "border-radius":1rem,
+    "border-radius-lg":2rem,
+    "border-radius-pill":2.5rem,
+  )
+) !default;
+
+/** COMPONENT VARIABLE STYLE */
+$eui-citatah-theme-component: (
+  'body-bg': var(--white),
+  
+  'margin-xmini': .25rem,
+  'margin-mini': .5rem,
+  'margin-tiny': .75rem,
+  'margin-small': 1rem,
+  'margin-medium': 1.15rem,
+  'margin-large': 1.5rem,
+  'margin-big': 1.75rem,
+  'margin-huge': 2rem,
+  'margin-massive': 2.25rem,
+
+  'padding-xmini': .25rem,
+  'padding-mini': .5rem,
+  'padding-tiny': .75rem,
+  'padding-small': 1rem,
+  'padding-medium': 1.15rem,
+  'padding-large': 1.5rem,
+  'padding-big': 1.75rem,
+  'padding-huge': 2rem,
+  'padding-massive': 2.25rem,
+
+  'border-thin': 1px,
+  'border-semibold': 2px,
+  'border-bold': 3px,
+  'border-xbold': 4px,
+  'border-xxbold': 5px,
+  
+  'shadow-small': 2px,
+  'shadow-medium': 4px,
+  'shadow-large': 6px,
+  'shadow-big': 8px,
+  'shadow-huge': 10px,
+) !default;

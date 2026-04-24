@@ -1,0 +1,48 @@
+.top-bar-loader {
+  position: fixed;
+  display: inline-block;
+  width: 100%;
+  height: 0.15rem;
+  background: var(--black-75);
+  // box-shadow: inset 0 0 5px rgba(var(--black-900-rgb, .1));
+  border-radius: 1px;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.top-bar-loader:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(var(--black-900-rgb, .2));
+  animation: load 5s;
+  background: var(--primary)
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+
+  25% {
+    width: 30%;
+  }
+
+  50% {
+    width: 60%;
+  }
+
+  75% {
+    width: 75%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+/** End*/

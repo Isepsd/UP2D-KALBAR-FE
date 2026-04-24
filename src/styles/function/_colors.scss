@@ -1,0 +1,16 @@
+@use 'sass:math';
+
+/**
+ * @n: hexcolor 
+ */
+ @function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+/**
+ * @n: hexcolor 
+ */
+$threshold: 55%;
+@function colorContrast($color, $white: white, $black: black) {
+    @return if(lightness($color) < $threshold, $light, $dark)
+}
