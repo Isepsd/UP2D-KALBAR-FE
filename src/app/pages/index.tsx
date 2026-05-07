@@ -15,7 +15,7 @@ import SpectrumHistoriRoute from './Fasop/SpectrumHistori/SpectrumHistoriRoute';
 import SpectrumKinerjaRoute from './Fasop/SpectrumKinerja/SpectrumKinerjaRoute';
 import TelegramRoute from './Fasop/Telegram/TelegramRoute';
 import WhatsappLOGRoute from './Fasop/WhatsappLOG/WhatsappLOGRoute';
-
+import TiketRoute from './Tiket/TiketRoute';
 // OPSIDIS ROUTES
 
 // MASTER DATA ROUTES
@@ -211,6 +211,7 @@ export default function AppsPage(): React.ReactElement {
     
           <Route path="telegram/*" element={<React.Suspense fallback={<TopBarLoader />}><TelegramRoute /></React.Suspense>} />
           <Route path="whatsapp/*" element={<React.Suspense fallback={<TopBarLoader />}><WhatsappLOGRoute /></React.Suspense>} />☻
+          <Route path="tiket/*" element={<React.Suspense fallback={<TopBarLoader />}><TiketRoute /></React.Suspense>} />☻
 
           {/* OPSISDIS  */}
           <Route path="opsisdis/*" element={<React.Suspense fallback={<TopBarLoader />}><OpsisdisRoute /></React.Suspense>} />

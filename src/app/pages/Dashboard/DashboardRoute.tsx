@@ -24,6 +24,8 @@ const BebanTabularPage = React.lazy(() => import("@app/pages/Dashboard/BebanSubS
 const KinerjaOpsisPage = React.lazy(() => import("@app/pages/Dashboard/KinerjaOpsis/KinerjaOpsisPage"))
 const KinerjaPenyulangPage = React.lazy(() => import("@app/pages/Dashboard/KinerjaPenyulang/KinerjaPenyulangPage"))
 const BebanUIDPage = React.lazy(() => import("@app/pages/Dashboard/BebanUID/BebanUIDPage"))
+const AsetPages = React.lazy(() => import("@app/pages/Dashboard/Aset/AsetPage"))
+
 export default function DashboardRoute() {
   return (
     <>
@@ -52,6 +54,8 @@ export default function DashboardRoute() {
         <Route path="beban-subsistem" element={<React.Suspense fallback={<TopBarLoader />}><BebanTabularPage /></React.Suspense>} />
         <Route path="beban-grafik" element={<React.Suspense fallback={<TopBarLoader />}><BebanGrafikSubPage /></React.Suspense>} />
         <Route path="beban-uid" element={<React.Suspense fallback={<TopBarLoader />}><BebanUIDPage /></React.Suspense>} />
+        <Route path="aset" element={<React.Suspense fallback={<TopBarLoader />}><AsetPages /></React.Suspense>} />
+        
         <Route path="*" element={<Error404 type="admin" />}></Route>
       </Routes>
     </>
